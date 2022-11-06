@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppoingAppTask.Controls.OrderItem">
+ 
+            <BoxView WidthRequest="1" BackgroundColor="{StaticResource colorPrimary}"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Spacing="15">
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="StartAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Order Id : "  TextColor="{StaticResource mainColor}"/>
+                                <Span Text="{Binding OrderID}"  TextColor="{StaticResource colorPrimary}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label HorizontalOptions="EndAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Order Date : "  TextColor="{StaticResource mainColor}"/>
+                                <Span Text="{Binding OrderDate}"  TextColor="{StaticResource colorPrimary}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <Label Text="{Binding ClientDescription}" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="{StaticResource mainColor}"/>
+                <Label HorizontalOptions="EndAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Order Amount : "  TextColor="{StaticResource mainColor}"/>
+                            <Span Text="{Binding OrderAmount}"  TextColor="{StaticResource colorPrimary}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+</StackLayout>

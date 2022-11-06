@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:OrderDefinitionPageXaml  xmlns:pages="clr-namespace:ShoppoingAppTask.Pages" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:ShoppoingAppTask.Controls" BackgroundColor="{StaticResource colorDefaultBackground}"
+                                x:Class="ShoppoingAppTask.Pages.OrderDefinitionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame>
+                <StackLayout>
+                    <controls:OrderItem BindingContext="{Binding OrderItem}"/>
+                    <Label Text="Edit Client Description" TextColor="{StaticResource colorPrimary}"/>
+                    <Frame BorderColor="Gray">
+                        <Editor HeightRequest="100" Placeholder="Start Write New Client Description" PlaceholderColor="Gray" TextColor="Black" BackgroundColor="White" Text="{Binding NewClientDescription}"/>
+                    </Frame>
+                </StackLayout>
+           
+            </Frame>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Padding="20">
+                <Button Text="Edit"   BackgroundColor="Blue" Clicked="Edit_Clicked" HorizontalOptions="EndAndExpand"/>
+                <Button Text="Delete" BackgroundColor="Red" Clicked="Delete_Clicked" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:OrderDefinitionPageXaml>

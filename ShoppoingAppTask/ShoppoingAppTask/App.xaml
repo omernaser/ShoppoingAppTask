@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppoingAppTask.App">
+    <Application.Resources>
+        <Color x:Key="colorPrimary">#404E5C</Color>
+        <Color x:Key="mainColor">#23b9c9</Color>
+        <Color x:Key="colorDefaultBackground">#F2E9E4</Color>
+
+    </Application.Resources>
+</Application>

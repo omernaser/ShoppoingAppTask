@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:LoginPageXaml  xmlns:pages="clr-namespace:ShoppoingAppTask.Pages" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      Padding="20"
+                       xmlns:xamlHelpers="clr-namespace:ShoppoingAppTask.Helpers" 
+                      BackgroundColor="{StaticResource colorDefaultBackground}"
+             x:Class="ShoppoingAppTask.Pages.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame VerticalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="{xamlHelpers:TransTxt UserName}" FontSize="Micro" TextColor="{StaticResource colorPrimary}"/>
+                    <Frame Padding="0">
+                        <Entry Text="{Binding UserName}" Placeholder="{xamlHelpers:TransTxt UserName}"  PlaceholderColor="Gray"/>
+                    </Frame>
+                    <Label Text="{xamlHelpers:TransTxt Password}" FontSize="Micro" TextColor="{StaticResource colorPrimary}"/>
+                    <Frame Padding="0">
+                        <Entry Text="{Binding Password}" Keyboard="Plain" Placeholder="{xamlHelpers:TransTxt Password}" PlaceholderColor="Gray"/>
+                    </Frame>
+                    <Button Text="{xamlHelpers:TransTxt Login}" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </Frame>
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Laguage_Tapped"/>
+                </Label.GestureRecognizers>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{xamlHelpers:TransTxt Language}"  TextColor="{StaticResource mainColor}"/>
+                        <Span Text="("  TextColor="{StaticResource mainColor}"/>
+                        <Span Text="{Binding Laguage}"  TextColor="{StaticResource colorPrimary}"/>
+                        <Span Text=")"  TextColor="{StaticResource mainColor}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+     
+    
+    </ContentPage.Content>
+</pages:LoginPageXaml>

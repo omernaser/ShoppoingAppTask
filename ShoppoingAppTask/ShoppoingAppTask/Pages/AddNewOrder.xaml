@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:AddNewOrderXaml  xmlns:pages="clr-namespace:ShoppoingAppTask.Pages" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:ShoppoingAppTask.Controls"
+                        Padding="20"
+                        Title="Submit an Order"
+                        BackgroundColor="{StaticResource colorDefaultBackground}"
+             x:Class="ShoppoingAppTask.Pages.AddNewOrder">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame VerticalOptions="Start" BackgroundColor="{StaticResource colorPrimary}">
+                <StackLayout>
+                    <Label FontAttributes="Bold" Text="Filter By :"  FontSize="Large"/>
+                    <StackLayout Orientation="Horizontal" Spacing="15" HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+                        <RadioButton x:Name="DateTimeControl" Value="1" GroupName="Filter" Content="Date Time" IsChecked="True"  />
+                        <RadioButton x:Name="ClientRBtn" Value="2 " GroupName="Filter" Content="Client Name" />
+                    </StackLayout>
+                    <DatePicker Date="{Binding SelectedDate}" IsVisible="{Binding IsChecked,Source={x:Reference DateTimeControl}}"/>
+                    <Picker x:Name="picker" Title="Select a Client" SelectedItem="{Binding SelectedClient}" IsVisible="{Binding IsChecked,Source={x:Reference ClientRBtn}}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Client 1</x:String>
+                                <x:String>Client 2</x:String>
+                                <x:String>Client 3</x:String>
+                                <x:String>Client 4</x:String>
+                                <x:String>Client 5</x:String>
+                                <x:String>Client 6</x:String>
+                                <x:String>Client 7</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Button Text="Search" Clicked="Search_Button_Clicked"/>
+                </StackLayout>
+            </Frame>
+            <Label Text="Orders" TextColor="{StaticResource mainColor}" FontSize="Large" HorizontalOptions="Center"/>
+            <ListView   IsVisible="{Binding SearchClicked}" VerticalScrollBarVisibility="Never"  x:Name="listView"  SeparatorVisibility="None"   SelectionMode="None" ItemsSource="{Binding Orders}"   HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="12" Margin="0,10" VerticalOptions="CenterAndExpand">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <controls:OrderItem/>
+                                    <BoxView WidthRequest="1" BackgroundColor="Gray"/>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="Quantity" HorizontalOptions="Center" MinimumWidthRequest="80" TextColor="{StaticResource colorPrimary}" VerticalOptions="Center"/>
+                                        <Button Clicked="AddQuantity_Button_Clicked" Text="+" HorizontalOptions="Center" BackgroundColor="{StaticResource colorPrimary}" TextColor="{StaticResource mainColor}"/>
+                                        <Frame Padding="5" BorderColor="{StaticResource mainColor}">
+                                            <Label Text="{Binding Quantity}" FontSize="Large" HorizontalOptions="Center" TextColor="{StaticResource mainColor}"/>
+                                        </Frame>
+                                        <Button Clicked="RemoveQuantity_Button_Clicked" Text="-" HorizontalOptions="Center" BackgroundColor="{StaticResource colorPrimary}" TextColor="{StaticResource mainColor}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Submit Order" Clicked="Submit_Button_Clicked"/>
+        </StackLayout>
+       
+     
+       
+    </ContentPage.Content>
+</pages:AddNewOrderXaml>

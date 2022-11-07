@@ -53,7 +53,7 @@ namespace ShoppoingAppTask.Pages
         {
             if (ViewModel.Orders.Select(r => r.Quantity).Any(r => r > 0))
             {
-                var list = ViewModel.Orders.Select(r => new OrdersDBModel(r.OrderID, r.OrderDate, r.OrderAmount, ViewModel.SelectedClient));
+                var list = ViewModel.Orders.Select(r => new OrdersDBModel(r.OrderID, r.OrderDate, r.OrderAmount, r.ClientDescription));
                 foreach (var item in list)
                 {
                     await App.Database.SaveOrderseAsync(item);

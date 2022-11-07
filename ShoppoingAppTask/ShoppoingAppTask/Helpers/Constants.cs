@@ -8,6 +8,8 @@ namespace ShoppoingAppTask.Helpers
     {
         public static int PageSize = 30;
         public static string AppLaguageKey =>"App_Language";
+        public static string TokenKey => "Token_Key";
+
         public static string UserNameKey => "User_Name_Key";
         public static string CurrentAppLaguage => string.IsNullOrEmpty(Settings.GetString(AppLaguageKey)) ? "en" : Settings.GetString("App_Language");
         public bool IsArabic => !CurrentAppLaguage.Equals("en");

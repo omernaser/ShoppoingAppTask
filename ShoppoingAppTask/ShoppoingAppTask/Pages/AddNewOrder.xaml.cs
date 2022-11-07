@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ShoppoingAppTask.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -53,12 +53,20 @@ namespace ShoppoingAppTask.Pages
         {
             if (ViewModel.Orders.Select(r => r.Quantity).Any(r => r > 0))
             {
+
+              
+
                 var list = ViewModel.Orders.Select(r => new OrdersDBModel(r.OrderID, r.OrderDate, r.OrderAmount, r.ClientDescription));
                 foreach (var item in list)
                 {
                     await App.Database.SaveOrderseAsync(item);
+                    var client = await WebAPI.SubmitOrders(item);
+                    if (client.IsSuccessStatusCode)
+                    {
+                    }
                 }
                 await this.Navigation.PopModalAsync();
+
             }
             else
             {
